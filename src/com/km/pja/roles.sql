@@ -33,3 +33,25 @@ GRANT INSERT, UPDATE
 GRANT SELECT
     ON category, category_game, game, illustrator, illustrator_game, author, author_game, publisher, award
     TO ALL;
+
+-- accounts --
+CREATE ROLE pioter
+    LOGIN
+    ENCRYPTED
+    PASSWORD 'maslo'
+    VALID UNTIL '2022-04-01';
+GRANT it TO pioter;
+
+CREATE ROLE janusz
+    LOGIN
+    ENCRYPTED
+    PASSWORD 'jajco123'
+    VALID UNTIL '2022-04-01';
+GRANT storage TO janusz;
+
+CREATE ROLE dorotka
+    LOGIN
+    ENCRYPTED
+    PASSWORD 'xoxo'
+    VALID UNTIL '2021-12-31';
+GRANT marketing TO dorotka;
