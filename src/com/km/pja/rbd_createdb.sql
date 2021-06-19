@@ -168,7 +168,7 @@ ALTER SEQUENCE public.category_id_seq OWNED BY public.category.id;
 CREATE TABLE public.game (
     title character varying(65),
     publisher_id bigint NOT NULL,
-    "short_Description" character varying(70),
+    "shortDescription" character varying(70),
     "longDescription" text,
     language character varying(5),
     "playersMin" integer,
