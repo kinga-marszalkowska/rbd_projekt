@@ -191,3 +191,14 @@ INSERT INTO category_game ("category_id", "game_id") VALUES (6,10);
 INSERT INTO category_game ("category_id", "game_id") VALUES (9,10);
 INSERT INTO category_game ("category_id", "game_id") VALUES (10,10);
 INSERT INTO category_game ("category_id", "game_id") VALUES (15,10);
+
+-- insert awards --
+
+INSERT INTO awards ("id", "name", "year", "game_id") VALUES (DEFAULT, "Board Game Quest Game of the Year Award", 2016, 8)
+INSERT INTO awards ("id", "name", "year", "game_id") VALUES (DEFAULT, "Game of the Year Award", 2018, 1)
+INSERT INTO awards ("id", "name", "year", "game_id") VALUES (DEFAULT, "Diana Jones Award", 2005, 3)
+INSERT INTO awards ("id", "name", "year", "game_id") VALUES (DEFAULT, "Spiel des Jahres", 2016, 6)
+INSERT INTO awards ("id", "name", "year", "game_id") VALUES (DEFAULT, "Deutscher Spiele Preis", 2016, 6)
+
+
+
