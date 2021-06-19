@@ -96,7 +96,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (2,3);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (4, 'Nemesis', 1, 'Survival sci-fi game', 'Nemesis is a 1-5 player survival sci-fi game where players are woken up from hibernation as a crew of a space ship. The emergency procedure states that there is a critical system failure and the space ship can`t continue its cruise.',
-        'en', 1, 5, 90, 180, 12, 3.9, 24/06/2019);
+        'en', 1, 5, 90, 180, 12, 3.9, '24/06/2019');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (5, 4);
 INSERT INTO public.illustrator_game ("illustrator_id", "game_id") VALUES (2, 4);
@@ -114,7 +114,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (14,4);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (5, 'Eksplodujące Kotki', 1, 'Dla kochających koty i wybuchy', 'Eksplodujące Kotki to napędzana kociakami odmiana rosyjskiej ruletki. Gracze ciągną co turę po karcie, aż do momentu dobrania eksplodującego kota - wtedy nieszczęśnik wybucha i ginie, a gra się kończy.',
-        'pl', 2, 5, 15, null, 12, 0.21, 16/11/2017);
+        'pl', 2, 5, 15, null, 12, 0.21, '16/11/2017');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (7, 5);
 INSERT INTO public.illustrator_game ("illustrator_id", "game_id") VALUES (8, 5);
@@ -128,7 +128,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (12,5);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (6, 'Tajniacy', 1, 'Przednia, zespołowa zabawa dedukcyjna!', 'Dwie drużyny, którym przewodzi dwóch Szefów Wywiadu, próbują jak najszybciej nawiązać kontakt ze wszystkimi swoimi agentami.',
-        'pl', 2, 8, 10, null, 14, 0.56, 03/03/2016);
+        'pl', 2, 8, 10, null, 14, 0.56, '03/03/2016');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (8, 6);
 INSERT INTO public.illustrator_game ("illustrator_id", "game_id") VALUES (9, 6);
@@ -140,7 +140,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (9,6);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (7, 'To ja go tnę!', 1, 'Przed polowaniem na potwora należy zebrać drużynę...', 'Zbierzcie drużynę bohaterów i wyruszcie na epicką przygodę przepełnioną prawdziwą jatką! Niech zdrada, groźne potwory i humor znany z Odjechanych jednorożców zagoszczą na Waszym stole!',
-        'pl', 2, 6, 30, 60, 10, 0.45, 28/04/2021);
+        'pl', 2, 6, 30, 60, 10, 0.45, '28/04/2021');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (9, 7);
 INSERT INTO public.illustrator_game ("illustrator_id", "game_id") VALUES (10, 7);
@@ -153,7 +153,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (13,7);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (8, 'Terraforming Mars', 7, 'Zmień Marsa w planetę zdatną do życia!', 'Ludzkość rozpoczęła ekspansję w Układzie Słonecznym. Na Marsie założono już kilka niewielkich kolonii. Ich mieszkańcy są odgrodzeni od naturalnego środowiska straszliwie zimnej, suchej i niemal pozbawionej atmosfery planety.',
-        'en', 1, 5, 90, 120, 12, 1.642, 28/09/2016);
+        'en', 1, 5, 90, 120, 12, 1.642, '28/09/2016');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (10, 8);
 INSERT INTO public.illustrator_game ("illustrator_id", "game_id") VALUES (11, 8);
@@ -166,7 +166,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (15,8);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (9, 'Munchkin', 5, 'Świetna gra kpiąca z RPG', 'Munchkin to niekolekcjonerska gra karciana, która oddaje urok typowej gry fabularnej bez tego całego durnego odgrywania postaci. Musisz tylko zabijać potwory i zbierać magiczne przedmioty!',
-        'pl', 3, 5, 60, 90, 12, 0.3, 02/03/2016);
+        'pl', 3, 5, 60, 90, 12, 0.3, '02/03/2016');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (11, 9);
 
@@ -178,7 +178,7 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (12,9);
 INSERT INTO public.game (id, "title", "publisher_id", "shortDescription", "longDescription",
                   "language", "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "weight", "releaseDate")
 VALUES (10, 'Splendor', 1, 'Kolekcjonowanie nigdy nie było tak uzależniające!', 'Gracze wcielają się w renesansowych kupców, którzy próbują nabyć kopalnie klejnotów, środki transportu, sklepy - wszystko to w celu zdobycia jak największego prestiżu.',
-        'pl', 2, 4, 30, null, 10, 1.02, 21/03/2016);
+        'pl', 2, 4, 30, null, 10, 1.02, '21/03/2016');
 
 INSERT INTO public.author_game ("author_id", "game_id") VALUES (12, 10);
 INSERT INTO public.illustrator_game ("illustrator_id", "game_id") VALUES (12, 10);
