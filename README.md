@@ -7,8 +7,18 @@ Autorzy: Marek Kudła, Kinga Marszałkowska
 
 Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówieniach. 
 
-## ⚀ 
-## ⚁ Bazka
+## 📖 Zawartość
+**[⚀ Bazka](##⚀-Bazka)**<br>
+**[⚁ Select, Update](#⚁-Select,-Update)**<br>
+**[⚂ Widoki](#⚂-Widoki)**<br>
+**[⚃ Triggery](#⚃-Triggery)**<br>
+**[⚄ Procedury i funkcje](#⚄-Procedury-i-funkcje)**<br>
+**[⚅ Role](#⚅-Role)**<br>
+
+
+
+## ⚀ Bazka
+
 ``` Żeby mieć ją u siebie wystarczy skopiować zawartość pliku ```
 
 [allInOne.sql](/src/com/km/pja/allInOne.sql), gdzie znajdują się:
@@ -19,9 +29,10 @@ Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówie
 * Triggery,
 * Role
 
-## ⚂ Select
 
-Więcej przykładów: [select.sql](/src/com/km/pja/select.sql)
+## ⚁ Select, Update
+
+Więcej przykładów zapytań select: [select.sql](/src/com/km/pja/select.sql)
 
 Zapytanie do pobrania historii zamówień wybranego użytkownika.
 
@@ -43,7 +54,18 @@ FROM public.category_game JOIN public.category ON category_id = id WHERE categor
 
 ```
 
+Więcej przykładów zapytań update: [update.sql](/src/com/km/pja/update.sql)
 
+Zmiana statusu zamówienia
+
+```SQL 
+-- change order status
+UPDATE public.order SET status = 'shipped' WHERE id = 1;
+
+```
+
+
+## ⚂ Widoki
 
 ## ⚃ Triggery
 
