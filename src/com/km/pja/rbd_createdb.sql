@@ -216,7 +216,7 @@ CREATE TABLE public.illustrator (
     id integer NOT NULL,
     name character varying(30),
     middle_name character varying(30),
-    surname character varying(30) NOT NULL
+    surname character varying(30)
 );
 
 
@@ -277,7 +277,7 @@ ALTER TABLE public."order" OWNER TO postgres;
 CREATE TABLE public.order_game (
     order_id integer NOT NULL,
     game_id integer NOT NULL,
-    "orderQuantity" integer NOT NULL
+    "orderQuantity" integer
 );
 
 
@@ -311,7 +311,7 @@ ALTER SEQUENCE public.order_id_seq OWNED BY public."order".id;
 
 CREATE TABLE public.publisher (
     id integer NOT NULL,
-    name character varying(65) NOT NULL
+    name character varying(65)
 );
 
 
