@@ -10,7 +10,7 @@ Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówie
 ### ⚀ 
 ### ⚁ Bazka (creaty + inserty)
 
-W pilku [allInOne.sql](allInOne.sql) znajdują się:
+W pilku [allInOne.sql](/src/com/km/pja/allInOne.sql) znajdują się:
 
 * Definicja bazy (create),
 * Dane (insert),
