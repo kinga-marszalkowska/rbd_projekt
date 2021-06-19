@@ -8,9 +8,10 @@ Autorzy: Marek Kudła, Kinga Marszałkowska
 Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówieniach. 
 
 ## ⚀ 
-## ⚁ Bazka (creaty + inserty)
+## ⚁ Bazka
+``` Żeby mieć ją u siebie wystarczy skopiować zawartość pliku ```
 
-W pilku [allInOne.sql](/src/com/km/pja/allInOne.sql) znajdują się:
+[allInOne.sql](/src/com/km/pja/allInOne.sql), gdzie znajdują się:
 
 * Definicja bazy (create),
 * Dane (insert),
@@ -19,6 +20,29 @@ W pilku [allInOne.sql](/src/com/km/pja/allInOne.sql) znajdują się:
 * Role
 
 ## ⚂ Select
+
+Więcej przykładów: [select.sql](/src/com/km/pja/select.sql)
+
+Zapytanie do pobrania historii zamówień wybranego użytkownika.
+
+```SQL 
+-- get 11th user's order history
+SELECT order_game.order_id, (SELECT title FROM public.game WHERE id = order_game.game_id),
+       order_game."orderQuantity", user_id, "orderDate", status
+FROM public.order_game JOIN public.order ON order_game.order_id = id 
+WHERE user_id = 11 ORDER BY "orderDate" ASC;
+
+```
+
+Zapytanie do filtrowania wyników wyszukiwań - wybiera gry o podanej kategorii.
+
+```SQL 
+-- select games by category name
+SELECT (SELECT title FROM public.game WHERE id = category_game.game_id)
+FROM public.category_game JOIN public.category ON category_id = id WHERE category.name = 'zręcznościowa';
+
+```
+
 
 
 ## ⚃ Triggery
