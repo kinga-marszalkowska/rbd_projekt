@@ -1,7 +1,7 @@
 # 🎲 Sklep internetowy grami planszowymi
 ![diagram](https://user-images.githubusercontent.com/55376943/122652853-5a1f1d00-d141-11eb-8a7c-2ac28f1ed87c.png)
 
-Autorzy: Marek Kudła, Kinga Marszałkowska
+Autorzy: Kinga Marszałkowska, Marek Kudła 
 
 ## Opis
 
@@ -66,6 +66,42 @@ UPDATE public.order SET status = 'shipped' WHERE id = 1;
 
 
 ## ⚂ Widoki
+Więcej przykładów widoków: [views.sql](/src/com/km/pja/views.sql)
+
+### 🔵 newest
+
+Wyświetla gry w kolejności od najnowszych pod względem daty wydania
+```SQL 
+CREATE VIEW newest
+AS
+SELECT title, "releaseDate" FROM game ORDER BY "releaseDate" DESC;
+
+```
+
+### 🔵 most_popular
+
+Wyświetla pozycje w kolejności od tych z największą liczbą zamówień
+
+```SQL 
+CREATE VIEW most_popular
+AS
+SELECT game_id, SUM("orderQuantity") FROM public.order_game GROUP BY game_id;
+
+```
+
+### 🔵 game_authors
+
+Wyświetla listę gier wraz z imionami i nazwiskami jej autorów
+
+```SQL 
+CREATE VIEW game_authors
+AS
+SELECT public.game.title, public.author.name, public.author.surname
+    from public.game
+    inner join public.author_game ON public.game.id = public.author_game.game_id
+    inner join public.author ON public.author_game.author_id = public.author.id;
+
+```
 
 ## ⚃ Triggery
 
@@ -244,3 +280,77 @@ $$;
 
 ## ⚅ Role
 
+Wszystkie role znajdują się tutaj: [roles.sql](/src/com/km/pja/roles.sql)
+
+### 🔵 it
+
+Grupa ról IT ma dostęp do większości danych i funkcji w systemie. 
+
+```SQL 
+CREATE ROLE it;
+GRANT INSERT, SELECT, UPDATE, DELETE
+    ON ALL TABLES IN SCHEMA 'public'
+    TO it;
+REVOKE UPDATE, DELETE
+    ON user
+    TO it;
+
+```
+
+### 🔵 marketing
+
+Role posiadające uprawnienia "marketing" mogą dodawać i aktualizować informacje o grach.
+
+```SQL 
+CREATE ROLE marketing;
+GRANT INSERT, SELECT, UPDATE
+    ON games, awards
+    TO marketing;
+```
+
+### 🔵 ecommerce
+
+Rola grupowa przeznaczona dla systemu obsługującego sklep. Ma uprawnienia do tworzenia nowych użytkowników, aktualizowania ich danych oraz do składania zamównień.
+
+```SQL 
+CREATE ROLE ecommerce;
+GRANT INSERT
+    ON order, order_game
+    TO ecommerce;
+GRANT INSERT, UPDATE
+    ON user
+    TO ecommerce;
+```
+
+Wszystkie grupy posiadają uprawnienia do wyświetlania tabel związanych z grami
+```SQL 
+GRANT SELECT
+    ON category, category_game, game, illustrator, illustrator_game, author, author_game, publisher, award
+    TO ALL;
+```
+
+### 🔵 Przykładowe role użytkowników systemu
+
+```SQL 
+-- accounts --
+CREATE ROLE pioter
+    LOGIN
+    ENCRYPTED
+    PASSWORD 'maslo'
+    VALID UNTIL '2022-04-01';
+GRANT it TO pioter;
+
+CREATE ROLE janusz
+    LOGIN
+    ENCRYPTED
+    PASSWORD 'jajco123'
+    VALID UNTIL '2022-04-01';
+GRANT storage TO janusz;
+
+CREATE ROLE dorotka
+    LOGIN
+    ENCRYPTED
+    PASSWORD 'xoxo'
+    VALID UNTIL '2021-12-31';
+GRANT marketing TO dorotka;
+```
