@@ -23,7 +23,22 @@ W pilku [allInOne.sql](/src/com/km/pja/allInOne.sql) znajdują się:
 
 ### ⚃ Triggery
 
-Przykładowe zastosowania triggerów w pliku [triggers_examples.sql](triggers_examples.sql)
+Przykładowe zastosowania triggerów w pliku [triggers_examples.sql](/src/com/km/pja/triggers_examples.sql)
+
+#### cancel_orders
+
+```SQL 
+CREATE TRIGGER cancel_orders_with_archived_games
+    AFTER UPDATE ON storage
+    FOR EACH ROW
+EXECUTE FUNCTION cancel_orders();
+
+```
+
+
+#### 
+
+####
 
 ### ⚄ Procedury i funkcje
 ### ⚅ Role
