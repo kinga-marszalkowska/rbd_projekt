@@ -6,9 +6,10 @@ AS $$
     BEGIN
         IF NEW.archived THEN
                 -- if order.status = ordered, paid
-                UPDATE order SET order.status = 'canceled' WHERE (order.status = 'paid' OR order.status = 'ordered')
+                UPDATE public.order SET status = 'canceled' WHERE (status = 'paid' OR status = 'ordered')
                 AND
                 -- TODO czy na pewno dobra gra zostanie wybrana?
+--                 SELECT order_game.order_id FROM public.order_game WHERE order_game.game_id = 1;
                 order_id = (SELECT order_game.order_id FROM order_game WHERE order_game.game_id = NEW.game_id);
         end if;
         RETURN NULL;
