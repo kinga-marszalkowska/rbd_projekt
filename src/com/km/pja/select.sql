@@ -7,10 +7,10 @@ FROM public.order_game JOIN public.order ON order_game.order_id = id WHERE user_
 SELECT (SELECT title FROM public.game WHERE id = category_game.game_id)
 FROM public.category_game JOIN public.category ON category_id = id WHERE category.name = 'zręcznościowa';
 
+-- total calego zamowienia
+
 -- newest games
 SELECT title, "releaseDate" FROM game ORDER BY "releaseDate" DESC;
 
--- most popular games -- add (*(select "orderQuantity" from public.order where id = public.order_game.game_id))
-SELECT count(public.order_game.game_id) AS ilosc,
-       (SELECT title FROM public.game WHERE id = public.order_game.game_id)
-FROM public.order_game GROUP BY public.order_game.game_id ORDER BY ilosc DESC;
+-- most popular games
+SELECT game_id, SUM("orderQuantity") FROM public.order_game GROUP BY game_id;
