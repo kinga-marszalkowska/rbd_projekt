@@ -17,16 +17,8 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 DROP DATABASE projekt;
---
--- Name: projekt; Type: DATABASE; Schema: -; Owner: postgres
---
-
 CREATE DATABASE projekt WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'English_United States.1250';
-
-
 ALTER DATABASE projekt OWNER TO postgres;
-
-\connect projekt
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -42,10 +34,6 @@ SET row_security = off;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
-
---
--- Name: author; Type: TABLE; Schema: public; Owner: postgres
---
 
 CREATE TABLE public.author (
     id integer NOT NULL,
@@ -495,114 +483,6 @@ ALTER TABLE ONLY public.storage ALTER COLUMN id SET DEFAULT nextval('public.stor
 
 ALTER TABLE ONLY public."user" ALTER COLUMN id SET DEFAULT nextval('public.user_id_seq'::regclass);
 
-
---
--- Data for Name: author; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.author (id, name, surname, middle_name) FROM stdin;
-\.
-
-
---
--- Data for Name: author_game; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.author_game (author_id, game_id) FROM stdin;
-\.
-
-
---
--- Data for Name: award; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.award (id, name, year, game_id) FROM stdin;
-\.
-
-
---
--- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.category (id, name) FROM stdin;
-\.
-
-
---
--- Data for Name: category_game; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.category_game (category_id, game_id) FROM stdin;
-\.
-
-
---
--- Data for Name: game; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.game (title, publisher_id, "short_Description", "longDescription", language, "playersMin", "playersMax", "timeMin", "timeMax", "ageMin", "ageMax", id, price, rating, weight, "releaseDate") FROM stdin;
-\.
-
-
---
--- Data for Name: illustrator; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.illustrator (id, name, middle_name, surname) FROM stdin;
-\.
-
-
---
--- Data for Name: illustrator_game; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.illustrator_game (illustrator_id, game_id) FROM stdin;
-\.
-
-
---
--- Data for Name: order; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."order" (id, user_id, "orderDate", status) FROM stdin;
-\.
-
-
---
--- Data for Name: order_game; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.order_game (order_id, game_id, "orderQuantity") FROM stdin;
-\.
-
-
---
--- Data for Name: publisher; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.publisher (id, name) FROM stdin;
-\.
-
-
---
--- Data for Name: storage; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.storage (id, game_id, quantity, price, archived) FROM stdin;
-\.
-
-
---
--- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."user" (id, email, "phoneNumber", username, password, name, surname, country, city, "adressLine1", "postalCode", regular) FROM stdin;
-\.
-
-
---
--- Name: author_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
 
 SELECT pg_catalog.setval('public.author_id_seq', 3, true);
 
