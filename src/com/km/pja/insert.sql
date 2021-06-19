@@ -191,8 +191,8 @@ INSERT INTO public.category_game ("category_id", "game_id") VALUES (15,10);
 
 -- insert awards --
 
-INSERT INTO public.awards ("id", "name", "year", "game_id") VALUES (1, 'Board Game Quest Game of the Year Award', 2016, 8);
-INSERT INTO public.awards ("id", "name", "year", "game_id") VALUES (2, 'Game of the Year Award', 2018, 1);
-INSERT INTO public.awards ("id", "name", "year", "game_id") VALUES (3, 'Diana Jones Award', 2005, 3);
-INSERT INTO public.awards ("id", "name", "year", "game_id") VALUES (4, 'Spiel des Jahres', 2016, 6);
-INSERT INTO public.awards ("id", "name", "year", "game_id") VALUES (5, 'Deutscher Spiele Preis', 2016, 6);
+INSERT INTO public.award ("id", "name", "year", "game_id") VALUES (1, 'Board Game Quest Game of the Year Award', 2016, 8);
+INSERT INTO public.award ("id", "name", "year", "game_id") VALUES (2, 'Game of the Year Award', 2018, 1);
+INSERT INTO public.award ("id", "name", "year", "game_id") VALUES (3, 'Diana Jones Award', 2005, 3);
+INSERT INTO public.award ("id", "name", "year", "game_id") VALUES (4, 'Spiel des Jahres', 2016, 6);
+INSERT INTO public.award ("id", "name", "year", "game_id") VALUES (5, 'Deutscher Spiele Preis', 2016, 6);
