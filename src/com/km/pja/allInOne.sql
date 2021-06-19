@@ -179,7 +179,6 @@ CREATE TABLE public.game (
     "ageMin" integer,
     "ageMax" integer,
     id integer NOT NULL,
-    price double precision,
     rating double precision,
     weight double precision,
     "releaseDate" date
