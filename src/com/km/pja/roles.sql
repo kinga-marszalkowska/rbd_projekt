@@ -17,10 +17,10 @@ GRANT INSERT, SELECT, UPDATE
     ON storage
     TO storage;
 
-CREATE ROLE marketing;
+CREATE ROLE sales;
 GRANT INSERT, SELECT, UPDATE
     ON games, awards
-    TO marketing;
+    TO sales;
 
 CREATE ROLE ecommerce;
 GRANT INSERT
@@ -54,4 +54,4 @@ CREATE ROLE dorotka
     ENCRYPTED
     PASSWORD 'xoxo'
     VALID UNTIL '2021-12-31';
-GRANT marketing TO dorotka;
+GRANT sales TO dorotka;
