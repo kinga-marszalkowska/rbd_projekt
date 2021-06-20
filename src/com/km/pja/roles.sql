@@ -19,7 +19,7 @@ GRANT INSERT, SELECT, UPDATE
 
 CREATE ROLE sales;
 GRANT INSERT, SELECT, UPDATE
-    ON public.games, public.awards
+    ON public.game, public.award
     TO sales;
 
 CREATE ROLE ecommerce;
