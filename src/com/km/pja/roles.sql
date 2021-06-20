@@ -1,38 +1,38 @@
 -- group roles --
 CREATE ROLE db_owner;
 GRANT ALL
-    ON ALL TABLES IN SCHEMA 'public'
+    ON ALL TABLES IN SCHEMA public
     TO db_owner;
 
 CREATE ROLE it;
 GRANT INSERT, SELECT, UPDATE, DELETE
-    ON ALL TABLES IN SCHEMA 'public'
+    ON ALL TABLES IN SCHEMA public
     TO it;
 REVOKE SELECT, UPDATE, DELETE
-    ON user
-    TO it;
+    ON public.user
+    FROM it;
 
 CREATE ROLE storage;
 GRANT INSERT, SELECT, UPDATE
-    ON storage
+    ON public.storage
     TO storage;
 
 CREATE ROLE sales;
 GRANT INSERT, SELECT, UPDATE
-    ON games, awards
+    ON public.games, public.awards
     TO sales;
 
 CREATE ROLE ecommerce;
 GRANT INSERT
-    ON order, order_game
+    ON public.order, public.order_game
     TO ecommerce;
 GRANT INSERT, UPDATE
-    ON user
+    ON public.user
     TO ecommerce;
 
 GRANT SELECT
-    ON category, category_game, game, illustrator, illustrator_game, author, author_game, publisher, award
-    TO ALL;
+    ON public.category, public.category_game, public.game, public.illustrator, public.illustrator_game, public.author, public.author_game, public.publisher, public.award
+    TO it, storage, sales, ecommerce;
 
 -- accounts --
 CREATE ROLE pioter
