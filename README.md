@@ -1,4 +1,4 @@
-# 🎲 Sklep internetowy grami planszowymi
+# 🎲 Sklep internetowy grami planszowymi 🎲
 ![diagram](https://user-images.githubusercontent.com/55376943/122652853-5a1f1d00-d141-11eb-8a7c-2ac28f1ed87c.png)
 
 Autorzy: Kinga Marszałkowska, Marek Kudła 
@@ -32,7 +32,7 @@ Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówie
 
 ## ⚁ Select, Update
 
-Więcej przykładów zapytań select: [select.sql](/src/com/km/pja/select.sql)
+Więcej przykładów zapytań select: [selects_example.sql](/src/com/km/pja/selects_example.sql)
 
 Zapytanie do pobrania historii zamówień wybranego użytkownika.
 
@@ -54,7 +54,7 @@ FROM public.category_game JOIN public.category ON category_id = id WHERE categor
 
 ```
 
-Więcej przykładów zapytań update: [update.sql](/src/com/km/pja/update.sql)
+Więcej przykładów zapytań update: [updates_example.sql](/src/com/km/pja/updates_example.sql)
 
 Zmiana statusu zamówienia
 
@@ -297,15 +297,15 @@ REVOKE UPDATE, DELETE
 
 ```
 
-### 🔵 marketing
+### 🔵 sales
 
-Role posiadające uprawnienia "marketing" mogą dodawać i aktualizować informacje o grach.
+Role posiadające uprawnienia "sales" mogą dodawać i aktualizować informacje o grach.
 
 ```SQL 
-CREATE ROLE marketing;
+CREATE ROLE sales;
 GRANT INSERT, SELECT, UPDATE
     ON games, awards
-    TO marketing;
+    TO sales;
 ```
 
 ### 🔵 ecommerce
@@ -352,5 +352,5 @@ CREATE ROLE dorotka
     ENCRYPTED
     PASSWORD 'xoxo'
     VALID UNTIL '2021-12-31';
-GRANT marketing TO dorotka;
+GRANT sales TO dorotka;
 ```
