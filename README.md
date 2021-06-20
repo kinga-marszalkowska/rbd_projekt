@@ -8,20 +8,21 @@ Autorzy: Kinga Marszałkowska, Marek Kudła
 Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówieniach. 
 
 ## 📖 Zawartość
-**[⚀ Bazka](##⚀-Bazka)**<br>
-**[⚁ Select, Update](#⚁-Select,-Update)**<br>
-**[⚂ Widoki](#⚂-Widoki)**<br>
-**[⚃ Triggery](#⚃-Triggery)**<br>
-**[⚄ Procedury i funkcje](#⚄-Procedury-i-funkcje)**<br>
-**[⚅ Role](#⚅-Role)**<br>
+**[⚀ Bazka](##-⚀-Bazka)**<br>
+**[⚁ Select, Update](##-⚁-Select,-Update)**<br>
+**[⚂ Widoki](##-⚂-Widoki)**<br>
+**[⚃ Triggery](##-⚃-Triggery)**<br>
+**[⚄ Procedury i funkcje](##-⚄-Procedury-i-funkcje)**<br>
+**[⚅ Role](##-⚅-Role)**<br>
 
 
 
 ## ⚀ Bazka
 
-``` Żeby mieć ją u siebie wystarczy skopiować zawartość pliku ```
+Żeby mieć ją u siebie wystarczy skopiować zawartość pliku
+[allInOne.sql](/src/com/km/pja/allInOne.sql), 
 
-[allInOne.sql](/src/com/km/pja/allInOne.sql), gdzie znajdują się:
+gdzie znajdują się:
 
 * Definicja bazy (create),
 * Dane (insert),
@@ -70,7 +71,7 @@ Więcej przykładów widoków: [views.sql](/src/com/km/pja/views.sql)
 
 ### 🔵 newest
 
-Wyświetla gry w kolejności od najnowszych pod względem daty wydania
+Wyświetla gry w kolejności od najnowszych pod względem daty wydania.
 ```SQL 
 CREATE VIEW newest
 AS
@@ -80,7 +81,7 @@ SELECT title, "releaseDate" FROM game ORDER BY "releaseDate" DESC;
 
 ### 🔵 most_popular
 
-Wyświetla pozycje w kolejności od tych z największą liczbą zamówień
+Wyświetla pozycje w kolejności od tych z największą liczbą zamówień.
 
 ```SQL 
 CREATE VIEW most_popular
@@ -91,7 +92,7 @@ SELECT game_id, SUM("orderQuantity") FROM public.order_game GROUP BY game_id;
 
 ### 🔵 game_authors
 
-Wyświetla listę gier wraz z imionami i nazwiskami jej autorów
+Wyświetla listę gier wraz z imionami i nazwiskami jej autorów.
 
 ```SQL 
 CREATE VIEW game_authors
@@ -105,7 +106,7 @@ SELECT public.game.title, public.author.name, public.author.surname
 
 ## ⚃ Triggery
 
-Przykładowe zastosowania triggerów w pliku [triggers_examples.sql](/src/com/km/pja/triggers_examples.sql)
+Przykładowe zastosowania triggerów w pliku [triggers_example.sql](/src/com/km/pja/triggers_example.sql)
 
 Definicje triggerów [triggers.sql](/src/com/km/pja/triggers.sql)
 
@@ -193,6 +194,8 @@ SELECT quantity FROM public.storage WHERE game_id = 1
 ##
 
 ## ⚄ Procedury i funkcje
+
+Procedury i funkcje znajdują się w pliku [procedures.sql](/src/com/km/pja/procedures.sql)
 
 ### 🔵 place_order
 
@@ -322,7 +325,7 @@ GRANT INSERT, UPDATE
     TO ecommerce;
 ```
 
-Wszystkie grupy posiadają uprawnienia do wyświetlania tabel związanych z grami
+Wszystkie grupy posiadają uprawnienia do wyświetlania tabel związanych z grami.
 ```SQL 
 GRANT SELECT
     ON category, category_game, game, illustrator, illustrator_game, author, author_game, publisher, award
