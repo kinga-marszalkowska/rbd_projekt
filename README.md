@@ -1,5 +1,6 @@
 # 🎲 Sklep internetowy grami planszowymi 🎲
-![diagram](https://user-images.githubusercontent.com/55376943/122652853-5a1f1d00-d141-11eb-8a7c-2ac28f1ed87c.png)
+![diagram_v4](https://user-images.githubusercontent.com/55376943/122669507-09013e80-d1be-11eb-87d5-05e9e6123da4.png)
+
 
 Autorzy: Kinga Marszałkowska, Marek Kudła 
 
