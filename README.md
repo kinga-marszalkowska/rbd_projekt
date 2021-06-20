@@ -8,12 +8,12 @@ Autorzy: Kinga Marszałkowska, Marek Kudła
 Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówieniach. 
 
 ## 📖 Zawartość
-**[⚀ Bazka](##-⚀-Bazka)**<br>
-**[⚁ Select, Update](##-⚁-Select,-Update)**<br>
-**[⚂ Widoki](##-⚂-Widoki)**<br>
-**[⚃ Triggery](##-⚃-Triggery)**<br>
-**[⚄ Procedury i funkcje](##-⚄-Procedury-i-funkcje)**<br>
-**[⚅ Role](##-⚅-Role)**<br>
+**[⚀ Bazka](#-bazka)**<br>
+**[⚁ Select, Update](#-select-update)**<br>
+**[⚂ Widoki](#-widoki)**<br>
+**[⚃ Triggery](#-triggery)**<br>
+**[⚄ Procedury i funkcje](#-procedury-i-funkcje)**<br>
+**[⚅ Role](#-role)**<br>
 
 
 
