@@ -1,6 +1,6 @@
 CREATE VIEW newest
 AS
-SELECT title, "releaseDate" FROM game ORDER BY "releaseDate" DESC;
+SELECT title, "releaseDate" FROM public.game ORDER BY "releaseDate" DESC;
 
 CREATE VIEW most_popular
 AS
