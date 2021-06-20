@@ -27,9 +27,9 @@ gdzie znajdują się:
 
 * Definicja bazy (create),
 * Dane (insert),
-* Funkcje i procedury,
-* Triggery,
 * Role
+
+Widoki, triggery, procedury i funkcje znajdują się w osobnych plikach. 
 
 
 ## ⚁ Select, Update
