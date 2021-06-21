@@ -43,3 +43,19 @@ BEGIN
     RETURN NEW;
 END
 $$;
+
+-- get a list of clients that have the most orders in a given month and year
+CREATE FUNCTION get_most_active_users(month varchar(2), year varchar(4) )
+    RETURNS TABLE (user_id integer, liczba_zamowien bigint)
+    AS
+$BODY$
+BEGIN
+    RETURN QUERY SELECT public.order.user_id, COUNT(status) AS liczba_zamowien FROM public.order
+                 WHERE "orderDate"::text LIKE CONCAT(year, '-',month,'-%')
+                 GROUP BY public.order.user_id
+                 ORDER BY liczba_zamowien DESC;
+
+    RETURN;
+END;
+$BODY$
+    LANGUAGE plpgsql;
