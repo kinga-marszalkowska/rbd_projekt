@@ -190,10 +190,6 @@ SELECT quantity FROM public.storage WHERE game_id = 1
 ```
 
 
-## 
-
-##
-
 ## ⚄ Procedury i funkcje
 
 Procedury i funkcje znajdują się w pliku [procedures.sql](/src/com/km/pja/procedures.sql)
@@ -221,26 +217,38 @@ CALL place_order(1, 1, 1);
 ```
 
 
-### 🔵 cancel_orders
+### 🔵 get_most_active_users
 
-Funkcja używana przy wywołaniu triggera do anulowania zamówień dotyczących zarchiwizowanych gier.
+Zwraca listę id użytkowników i liczby ich zamówień z danego miesiąca i roku.
 
 ```SQL 
--- cancel all uncompleted orders containing archived games
-CREATE OR REPLACE FUNCTION cancel_orders()
-    RETURNS TRIGGER
-    LANGUAGE 'plpgsql'
-AS $$
+-- get a list of clients that have the most orders in a given month and year
+CREATE FUNCTION get_most_active_users(month varchar(2), year varchar(4) )
+    RETURNS TABLE (user_id integer, liczba_zamowien bigint)
+    AS
+$BODY$
 BEGIN
-    IF NEW.archived THEN
-        UPDATE public.order SET status = 'canceled' 
-        WHERE (status = 'paid' OR status = 'ordered') AND id IN 
-        (SELECT order_game.order_id FROM public.order_game WHERE order_game.game_id = NEW.game_id);
-    END IF;
-    RETURN NULL;
-END
-$$;
+    RETURN QUERY SELECT public.order.user_id, COUNT(status) AS liczba_zamowien FROM public.order
+                 WHERE "orderDate"::text LIKE CONCAT(year, '-',month,'-%')
+                 GROUP BY public.order.user_id
+                 ORDER BY liczba_zamowien DESC;
+
+    RETURN;
+END;
+$BODY$
+    LANGUAGE plpgsql;
 ```
+
+Przykładowe wywołanie:
+
+```SQL 
+SELECT * FROM get_most_active_users('08', '2020')
+```
+
+Wynik:
+
+![queryout](https://user-images.githubusercontent.com/64398325/122830464-a8225500-d2e8-11eb-93a9-4547f752bf7f.PNG)
+
 
 ### 🔵 copies_in_storage_check
 
