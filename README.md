@@ -20,16 +20,15 @@ Baza danych przechowuje informacje o grach, oraz o użytkownikach i ich zamówie
 
 ## ⚀ Bazka
 
-Żeby mieć ją u siebie wystarczy skopiować zawartość pliku
-[allInOne.sql](/src/com/km/pja/allInOne.sql), 
-
-gdzie znajdują się:
+Żeby mieć ją u siebie wystarczy stworzyć nową bazę za pomocą pgAdmin, kliknąć prawym przyciskiem w jej nazwę i otworzyć query tool. Następnie skopiować do niego zawartość pliku
+[allInOne.sql](/src/com/km/pja/allInOne.sql), gdzie znajdują się:
 
 * Definicja bazy (create),
 * Dane (insert),
 * Role
+* Widoki
 
-Widoki, triggery, procedury i funkcje znajdują się w osobnych plikach. 
+Żeby baza była w pełni funkcjonalna klikając prawym przyciskiem w schema public należy otworzyć query tool i przekopiować do niego zawartość pliku [allInOne_2.sql](/src/com/km/pja/allInOne_2.sql). Są tam trygiery, procedury i funkcje.
 
 
 ## ⚁ Select, Update
