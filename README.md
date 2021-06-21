@@ -36,7 +36,7 @@ Widoki, triggery, procedury i funkcje znajdują się w osobnych plikach.
 
 Więcej przykładów zapytań select: [selects_example.sql](/src/com/km/pja/selects_example.sql)
 
-Zapytanie do pobrania historii zamówień wybranego użytkownika.
+🔵 Zapytanie do pobrania historii zamówień wybranego użytkownika.
 
 ```SQL 
 -- get 11th user's order history
@@ -47,18 +47,44 @@ WHERE user_id = 11 ORDER BY "orderDate" ASC;
 
 ```
 
-Zapytanie do filtrowania wyników wyszukiwań - wybiera gry o podanej kategorii.
+Wynik:
+
+![order_history](https://user-images.githubusercontent.com/64398325/122830736-0f400980-d2e9-11eb-98be-8b3c2b378384.PNG)
+
+
+🔵 Pobieranie całościowej wartości zamówienia i jego id.
 
 ```SQL 
--- select games by category name
-SELECT (SELECT title FROM public.game WHERE id = category_game.game_id)
-FROM public.category_game JOIN public.category ON category_id = id WHERE category.name = 'zręcznościowa';
+-- shows totals of all orders
+SELECT public.order.id,
+       SUM(("orderQuantity" * (SELECT price FROM public.storage WHERE public.storage.game_id = public.order_game.game_id))) AS total
+FROM public.order JOIN public.order_game ON public.order.id = order_id
+GROUP BY public.order.id ;
 
 ```
 
+Wynik:
+
+![total](https://user-images.githubusercontent.com/64398325/122830984-7c539f00-d2e9-11eb-9ec6-f74749826acf.PNG)
+
+
+🔵 Filtrowanie wyników wyszukiwań - wybiera gry o podanej kategorii.
+
+```SQL 
+-- select games with given categories
+SELECT DISTINCT
+(SELECT title FROM public.game WHERE id = category_game.game_id)
+FROM public.category_game JOIN public.category ON category_id = id
+WHERE category.name IN ('zręcznościowa', 'karciana', 'edukacyjna');
+```
+Wynik:
+
+![games](https://user-images.githubusercontent.com/64398325/122831122-b45ae200-d2e9-11eb-95cb-c2c819caf0d5.PNG)
+
+
 Więcej przykładów zapytań update: [updates_example.sql](/src/com/km/pja/updates_example.sql)
 
-Zmiana statusu zamówienia
+🔵 Zmiana statusu zamówienia
 
 ```SQL 
 -- change order status
@@ -190,10 +216,6 @@ SELECT quantity FROM public.storage WHERE game_id = 1
 ```
 
 
-## 
-
-##
-
 ## ⚄ Procedury i funkcje
 
 Procedury i funkcje znajdują się w pliku [procedures.sql](/src/com/km/pja/procedures.sql)
@@ -221,26 +243,38 @@ CALL place_order(1, 1, 1);
 ```
 
 
-### 🔵 cancel_orders
+### 🔵 get_most_active_users
 
-Funkcja używana przy wywołaniu triggera do anulowania zamówień dotyczących zarchiwizowanych gier.
+Zwraca listę id użytkowników i liczby ich zamówień z danego miesiąca i roku.
 
 ```SQL 
--- cancel all uncompleted orders containing archived games
-CREATE OR REPLACE FUNCTION cancel_orders()
-    RETURNS TRIGGER
-    LANGUAGE 'plpgsql'
-AS $$
+-- get a list of clients that have the most orders in a given month and year
+CREATE FUNCTION get_most_active_users(month varchar(2), year varchar(4) )
+    RETURNS TABLE (user_id integer, liczba_zamowien bigint)
+    AS
+$BODY$
 BEGIN
-    IF NEW.archived THEN
-        UPDATE public.order SET status = 'canceled' 
-        WHERE (status = 'paid' OR status = 'ordered') AND id IN 
-        (SELECT order_game.order_id FROM public.order_game WHERE order_game.game_id = NEW.game_id);
-    END IF;
-    RETURN NULL;
-END
-$$;
+    RETURN QUERY SELECT public.order.user_id, COUNT(status) AS liczba_zamowien FROM public.order
+                 WHERE "orderDate"::text LIKE CONCAT(year, '-',month,'-%')
+                 GROUP BY public.order.user_id
+                 ORDER BY liczba_zamowien DESC;
+
+    RETURN;
+END;
+$BODY$
+    LANGUAGE plpgsql;
 ```
+
+Przykładowe wywołanie:
+
+```SQL 
+SELECT * FROM get_most_active_users('08', '2020')
+```
+
+Wynik:
+
+![queryout](https://user-images.githubusercontent.com/64398325/122830464-a8225500-d2e8-11eb-93a9-4547f752bf7f.PNG)
+
 
 ### 🔵 copies_in_storage_check
 
