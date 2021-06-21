@@ -1083,12 +1083,6 @@ SELECT public.game.title, public.publisher.name
     join public.publisher ON public.game.publisher_id = public.publisher.id;
     
 
---- TRIGGERS --- triggers.sql ---
-
-
-
-
-
 --- ROLES --- roles.sql ---
 
 
