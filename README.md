@@ -1,4 +1,4 @@
-# 🎲 Sklep internetowy grami planszowymi 🎲
+# 🎲 Sklep internetowy z grami planszowymi 🎲
 ![diagram_v4](https://user-images.githubusercontent.com/55376943/122669507-09013e80-d1be-11eb-87d5-05e9e6123da4.png)
 
 
