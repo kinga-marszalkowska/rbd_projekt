@@ -17,9 +17,10 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE projekt;
-CREATE DATABASE projekt WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'English_United States.1250';
-ALTER DATABASE projekt OWNER TO postgres;
+-- uncomment if needed
+-- DROP DATABASE projekt;
+-- CREATE DATABASE projekt WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'English_United States.1250';
+-- ALTER DATABASE projekt OWNER TO postgres;
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
